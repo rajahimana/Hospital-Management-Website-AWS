@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Patients Tab</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #007BFF;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .tab-content {
+            padding: 20px;
+            background-color: white;
+            min-height: 400px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        form {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+        }
+        form div {
+            margin-bottom: 10px;
+        }
+        form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        form input[type="text"], form input[type="date"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        form input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        form input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Hospital Patient Management</h1>
+        <p>Your Health, Our Priority</p>
+    </header>
+
+    <nav>
+        <a href="#" onclick="showTab('joined')">Patients Joined</a>
+        <a href="#" onclick="showTab('left')">Patients Left</a>
+        <a href="#" onclick="showTab('newop')">New OP Form</a>
+    </nav>
+
+    <!-- Patients Joined Tab -->
+    <div class="tab-content" id="joined" style="display: none;">
+        <h2>Patients Joined</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Patient ID</th>
+                    <th>Patient Name</th>
+                    <th>Date of Joining</th>
+                    <th>Ward</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>101</td>
+                    <td>John Doe</td>
+                    <td>2024-10-10</td>
+                    <td>General Ward</td>
+                </tr>
+                <tr>
+                    <td>102</td>
+                    <td>Mary Johnson</td>
+                    <td>2024-10-11</td>
+                    <td>ICU</td>
+                </tr>
+                <!-- Additional rows can be added here -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Patients Left Tab -->
+    <div class="tab-content" id="left" style="display: none;">
+        <h2>Patients Left</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Patient ID</th>
+                    <th>Patient Name</th>
+                    <th>Date of Discharge</th>
+                    <th>Ward</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>099</td>
+                    <td>Jane Smith</td>
+                    <td>2024-10-05</td>
+                    <td>General Ward</td>
+                </tr>
+                <tr>
+                    <td>098</td>
+                    <td>Mike Brown</td>
+                    <td>2024-10-04</td>
+                    <td>ICU</td>
+                </tr>
+                <!-- Additional rows can be added here -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- New OP Form Tab -->
+    <div class="tab-content" id="newop" style="display: none;">
+        <h2>New Outpatient (OP) Form</h2>
+        <form id="opForm">
+            <div>
+                <label for="patientName">Patient Name</label>
+                <input type="text" id="patientName" name="patientName" required>
+            </div>
+            <div>
+                <label for="patientAge">Age</label>
+                <input type="text" id="patientAge" name="patientAge" required>
+            </div>
+            <div>
+                <label for="visitDate">Visit Date</label>
+                <input type="date" id="visitDate" name="visitDate" required>
+            </div>
+            <div>
+                <label for="doctorName">Doctor Name</label>
+                <input type="text" id="doctorName" name="doctorName" required>
+            </div>
+            <div>
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all tabs
+            var joinedTab = document.getElementById('joined');
+            var leftTab = document.getElementById('left');
+            var newOpTab = document.getElementById('newop');
+
+            joinedTab.style.display = 'none';
+            leftTab.style.display = 'none';
+            newOpTab.style.display = 'none';
+
+            // Show the selected tab
+            if (tabName === 'joined') {
+                joinedTab.style.display = 'block';
+            } else if (tabName === 'left') {
+                leftTab.style.display = 'block';
+            } else if (tabName === 'newop') {
+                newOpTab.style.display = 'block';
+            }
+        }
+
+        // Form submission (this can be linked to backend/database handling)
+        document.getElementById('opForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert("New OP form submitted successfully!");
+        });
+    </script>
+
+</body>
+</html>
