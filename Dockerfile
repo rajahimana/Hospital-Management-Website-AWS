@@ -6,7 +6,7 @@ ENV APP_DIR=/usr/share/nginx/html
 
 # Install Git, clone the repository, and copy files to the Nginx HTML directory
 RUN apk add --no-cache git && \
-    git clone https://github.com/Shivateja124/hms-html.git /temp && \
+    git clone https://github.com/rajahimana/Hospital-Management-Website-AWS /temp && \
     cp -r /temp/* $APP_DIR && \
     rm -rf /temp
 
