@@ -11,7 +11,7 @@ RUN apk add --no-cache git && \
     rm -rf /temp
 
 # Expose port 80 for the Nginx web server
-EXPOSE 80
+EXPOSE 8081
 
 # Start the Nginx server
 CMD ["nginx", "-g", "daemon off;"]
