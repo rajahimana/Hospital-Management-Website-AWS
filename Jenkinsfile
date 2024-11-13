@@ -15,12 +15,6 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    // Ensure Docker Compose is installed
-                    if (!fileExists('/usr/local/bin/docker-compose')) {
-                        echo "Docker Compose is not installed. Installing..."
-                        sh 'sudo apt-get update && sudo apt-get install docker-compose -y'
-                    }
-                    
                     // Check if there are any existing containers to stop and remove
                     sh '''
                     if [ "$(docker ps -a -q)" ]; then
