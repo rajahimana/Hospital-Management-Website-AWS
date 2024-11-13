@@ -5,14 +5,4 @@ services:
       dockerfile: Dockerfile
     ports:
       - 8081:80
-
-  website2:
-    build:
-      context: ./html
-      dockerfile: Dockerfile
-    ports:
-      - 8082:80
-
-networks:
-  default:
-    driver: bridge
+  restart:always
