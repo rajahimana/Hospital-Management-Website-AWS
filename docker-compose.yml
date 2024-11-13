@@ -2,20 +2,14 @@ services:
   website:
     build:
       context: ./html
-    image: nginx:latest
-    container_name: website
-    volumes:
-      - ./html:/usr/share/nginx/html
+      dockerfile: Dockerfile
     ports:
       - 8081:80
 
   website2:
     build:
       context: ./html
-    image: nginx:latest
-    container_name: website2
-    volumes:
-      - ./html:/usr/share/nginx/html
+      dockerfile: Dockerfile
     ports:
       - 8082:80
 
