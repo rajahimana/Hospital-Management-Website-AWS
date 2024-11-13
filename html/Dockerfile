@@ -2,4 +2,4 @@
 FROM nginx:alpine
 
 # Copy your website files to the default Nginx directory
-COPY ./website /usr/share/nginx/html
+COPY ./html /usr/share/nginx/html
