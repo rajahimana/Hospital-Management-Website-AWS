@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = 'hospital-management-website'
+        IMAGE_NAME = 'nginx:latest'
     }
 
     stages {
