@@ -1,5 +1,5 @@
 # Use the official Nginx image
-FROM nginx:alpine
+FROM nginx:latest
 
 # Copy your website files to the default Nginx directory
-COPY ./html /usr/share/nginx/html
+COPY . /usr/share/nginx/html
