@@ -8,4 +8,17 @@ services:
       - ./html:/usr/share/nginx/html
     ports:
       - 8081:80
-    restart: always
+
+  website2:
+    build:
+      context: ./html
+    image: nginx:latest
+    container_name: website2
+    volumes:
+      - ./html:/usr/share/nginx/html
+    ports:
+      - 8082:80
+
+networks:
+  default:
+    driver: bridge
