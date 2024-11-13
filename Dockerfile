@@ -1,17 +1,5 @@
-# Use the official Nginx image as the base image
+# Use the official Nginx image
 FROM nginx:alpine
 
-# Set environment variable for Nginx HTML directory
-ENV APP_DIR=/usr/share/nginx/html
-
-# Install Git, clone the repository, and copy files to the Nginx HTML directory
-RUN apk add --no-cache git && \
-    git clone https://github.com/rajahimana/Hospital-Management-Website-AWS /temp && \
-    cp -r /temp/* $APP_DIR && \
-    rm -rf /temp
-
-# Expose port 80 for the Nginx web server
-EXPOSE 8081
-
-# Start the Nginx server
-CMD ["nginx", "-g", "daemon off;"]
+# Copy your website files to the default Nginx directory
+COPY ./website /usr/share/nginx/html
