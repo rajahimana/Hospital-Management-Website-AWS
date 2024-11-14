@@ -1,4 +1,0 @@
-services:
-  website:
-    ports:
-      - "8082:80"
