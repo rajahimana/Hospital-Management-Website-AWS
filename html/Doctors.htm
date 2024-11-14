@@ -88,12 +88,12 @@
 <script>
     const doctors = {
         'Cardiology': [
-            { name: 'Dr. John Doe', img: 'doctor1.jpg', availability: 'Mon-Fri 9 AM - 5 PM' },
-            { name: 'Dr. Jane Smith', img: 'doctor2.jpg', availability: 'Mon-Wed 10 AM - 4 PM' }
+            { name: 'Dr. ARUN KUMAR', availability: 'Mon-Fri 9 AM - 5 PM' },
+            { name: 'Dr. RISHITHA',  availability: 'Mon-Wed 10 AM - 4 PM' }
         ],
         'Orthopedics': [
-            { name: 'Dr. Michael Brown', img: 'doctor3.jpg', availability: 'Tue-Thu 11 AM - 3 PM' },
-            { name: 'Dr. Emily White', img: 'doctor4.jpg', availability: 'Mon-Fri 8 AM - 2 PM' }
+            { name: 'Dr. ADITHYA', availability: 'Tue-Thu 11 AM - 3 PM' },
+            { name: 'Dr. SRINIVAS', availability: 'Mon-Fri 8 AM - 2 PM' }
         ]
         // Add more departments and doctors
     };
@@ -108,7 +108,7 @@
                 doctorCard.className = 'doctor-card';
 
                 doctorCard.innerHTML = `
-                    <img src="${doctor.img}" alt="${doctor.name}" class="doctor-img">
+                    
                     <div class="doctor-details">
                         <h3>${doctor.name}</h3>
                         <p>${doctor.availability}</p>
