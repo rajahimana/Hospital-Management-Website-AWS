@@ -10,28 +10,41 @@
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         header {
-            background-color:#1fb9be;
+            background-color: #1fb9be;
             color: white;
             padding: 20px 0;
             text-align: center;
+            width: 100%;
         }
-        nav {
+        .button-container {
             display: flex;
-            justify-content: space-around;
-            background-color: #007BFF;
-            padding: 10px;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
         }
-        nav a {
+        .button-container a {
+            background-color: #007BFF;
             color: white;
+            padding: 10px 20px;
+            margin: 10px 0; /* Space between buttons */
+            border-radius: 5px;
             text-decoration: none;
             font-size: 18px;
+            width: 200px; /* Set a width to keep buttons aligned */
+            text-align: center;
         }
         .tab-content {
             padding: 20px;
             background-color: white;
             min-height: 400px;
+            width: 80%;
+            margin-top: 20px;
+            border: 1px solid #ddd;
         }
         table {
             width: 100%;
@@ -52,10 +65,11 @@
 </head>
 <body>
     <header>Records and Availability</header>
-    <nav>
+    
+    <div class="button-container">
         <a href="#" onclick="showTab('records')">Records</a>
         <a href="#" onclick="showTab('availability')">Availability</a>
-    </nav>
+    </div>
 
     <div class="tab-content" id="records" style="display: none;">
         <h2>Patient Records</h2>
@@ -71,17 +85,16 @@
             <tbody>
                 <tr>
                     <td>001</td>
-                    <td>John Doe</td>
+                    <td>Rahul</td>
                     <td>2024-05-01</td>
                     <td>2024-05-10</td>
                 </tr>
                 <tr>
                     <td>002</td>
-                    <td>Jane Smith</td>
+                    <td>Anjali</td>
                     <td>2024-05-03</td>
                     <td>2024-05-15</td>
                 </tr>
-                <!-- Additional rows can be added here -->
             </tbody>
         </table>
     </div>
@@ -110,7 +123,6 @@
                     <td>8</td>
                     <td>2</td>
                 </tr>
-                <!-- Additional rows can be added here -->
             </tbody>
         </table>
         <br>
@@ -120,21 +132,12 @@
 
     <script>
         function showTab(tabName) {
-            var recordsTab = document.getElementById('records');
-            var availabilityTab = document.getElementById('availability');
+            document.getElementById('records').style.display = 'none';
+            document.getElementById('availability').style.display = 'none';
 
-            // Hide both tabs initially
-            recordsTab.style.display = 'none';
-            availabilityTab.style.display = 'none';
-
-            // Display the selected tab
-            if (tabName === 'records') {
-                recordsTab.style.display = 'block';
-            } else if (tabName === 'availability') {
-                availabilityTab.style.display = 'block';
-            }
+            // Show the selected tab
+            document.getElementById(tabName).style.display = 'block';
         }
     </script>
-
 </body>
 </html>
