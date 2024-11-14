@@ -10,28 +10,48 @@
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         header {
             background-color: #007BFF;
             color: white;
-            padding: 10px 0;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px 0;
+        }
+        .button-container a {
+            padding: 10px 20px;
+            margin: 10px 0;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            width: 200px;
             text-align: center;
         }
-        nav {
-            display: flex;
-            justify-content: space-around;
-            background-color: #007BFF;
-            padding: 10px;
+        .joined-button {
+            background-color: #28a745;
         }
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
+        .left-button {
+            background-color: #dc3545;
+        }
+        .newop-button {
+            background-color: #17a2b8;
         }
         .tab-content {
             padding: 20px;
             background-color: white;
-            min-height: 400px;
+            width: 80%;
+            margin-top: 20px;
+            border: 1px solid #ddd;
         }
         table {
             width: 100%;
@@ -53,9 +73,10 @@
             padding: 20px;
             background-color: #f9f9f9;
             border: 1px solid #ddd;
+            border-radius: 5px;
         }
         form div {
-            margin-bottom: 10px;
+            margin-bottom: 15px; /* Add spacing between form fields */
         }
         form label {
             display: block;
@@ -87,11 +108,11 @@
         <p>Your Health, Our Priority</p>
     </header>
 
-    <nav>
-        <a href="#" onclick="showTab('joined')">Patients Joined</a>
-        <a href="#" onclick="showTab('left')">Patients Left</a>
-        <a href="#" onclick="showTab('newop')">New OP Form</a>
-    </nav>
+    <div class="button-container">
+        <a href="#" class="joined-button" onclick="showTab('joined')">Patients Joined</a>
+        <a href="#" class="left-button" onclick="showTab('left')">Patients Left</a>
+        <a href="#" class="newop-button" onclick="showTab('newop')">New OP Form</a>
+    </div>
 
     <!-- Patients Joined Tab -->
     <div class="tab-content" id="joined" style="display: none;">
@@ -108,17 +129,16 @@
             <tbody>
                 <tr>
                     <td>101</td>
-                    <td>John Doe</td>
+                    <td>Anvitha</td>
                     <td>2024-10-10</td>
                     <td>General Ward</td>
                 </tr>
                 <tr>
                     <td>102</td>
-                    <td>Mary Johnson</td>
+                    <td>Vijay</td>
                     <td>2024-10-11</td>
                     <td>ICU</td>
                 </tr>
-                <!-- Additional rows can be added here -->
             </tbody>
         </table>
     </div>
@@ -138,17 +158,16 @@
             <tbody>
                 <tr>
                     <td>099</td>
-                    <td>Jane Smith</td>
+                    <td>Sneha</td>
                     <td>2024-10-05</td>
                     <td>General Ward</td>
                 </tr>
                 <tr>
                     <td>098</td>
-                    <td>Mike Brown</td>
+                    <td>Rajesh</td>
                     <td>2024-10-04</td>
                     <td>ICU</td>
                 </tr>
-                <!-- Additional rows can be added here -->
             </tbody>
         </table>
     </div>
@@ -181,26 +200,13 @@
 
     <script>
         function showTab(tabName) {
-            // Hide all tabs
-            var joinedTab = document.getElementById('joined');
-            var leftTab = document.getElementById('left');
-            var newOpTab = document.getElementById('newop');
+            document.getElementById('joined').style.display = 'none';
+            document.getElementById('left').style.display = 'none';
+            document.getElementById('newop').style.display = 'none';
 
-            joinedTab.style.display = 'none';
-            leftTab.style.display = 'none';
-            newOpTab.style.display = 'none';
-
-            // Show the selected tab
-            if (tabName === 'joined') {
-                joinedTab.style.display = 'block';
-            } else if (tabName === 'left') {
-                leftTab.style.display = 'block';
-            } else if (tabName === 'newop') {
-                newOpTab.style.display = 'block';
-            }
+            document.getElementById(tabName).style.display = 'block';
         }
 
-        // Form submission (this can be linked to backend/database handling)
         document.getElementById('opForm').addEventListener('submit', function(event) {
             event.preventDefault();
             alert("New OP form submitted successfully!");
